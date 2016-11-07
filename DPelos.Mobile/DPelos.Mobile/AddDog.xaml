@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+			x:Class="DPelos.Mobile.AddDog"
+			Padding="30,30,30,30">
+	<StackLayout VerticalOptions="FillAndExpand"
+				HorizontalOptions="FillAndExpand"
+				Orientation="Vertical"
+				Spacing="15">
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
+			<Label Grid.Column="1" Text="Nombre" />
+		</Grid>
+
+		<Entry x:Name="NameEntry" Placeholder="Firulais" />
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-calendar" />
+			<Label Grid.Column="1" Text="Fecha de nacimiento" />
+		</Grid>
+
+		<Entry x:Name="BirthdayEntry" Placeholder="01/01/2010" />
+
+		<Button x:Name="SaveButton" Text="Guardar" Clicked="Save" TextColor="White" BackgroundColor="#4DD0E1" />
+	</StackLayout>
+</ContentPage>
