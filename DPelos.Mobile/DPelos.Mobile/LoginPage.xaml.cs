@@ -15,6 +15,12 @@ namespace DPelos.Mobile
 			InitializeComponent();
 		}
 
+
+		 private void LoginFacebook(object sender, EventArgs e)
+		{
+			
+		}
+
 		void Login(object sender, EventArgs e)
 		{
 			App.Current.MainPage = new MainPage();

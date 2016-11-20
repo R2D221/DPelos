@@ -35,8 +35,17 @@
 				<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-key" IconColor="#95ACD0" />
 				<Entry Grid.Column="1" x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" />
 			</Grid>
-
-			<Button x:Name="LoginButton" Text="Iniciar sesión" Clicked="Login" TextColor="White" BackgroundColor="#4DD0E1" />
+			
+			<Button Clicked="LoginFacebook" 
+					Text="Login con Facebook"
+					TextColor="White"
+					BackgroundColor="#1a75ff" /> 
+				
+			<Button x:Name="LoginButton" 
+					Text="Iniciar sesión" 
+					Clicked="Login" 
+					TextColor="White" 
+					BackgroundColor="#4DD0E1" />
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
