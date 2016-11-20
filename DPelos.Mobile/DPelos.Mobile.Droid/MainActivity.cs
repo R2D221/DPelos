@@ -19,6 +19,9 @@ namespace DPelos.Mobile.Droid
 
 			base.OnCreate(bundle);
 
+			// Initialize Azure Mobile Apps
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
 			Plugin.Iconize.Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeModule());
 			FormsPlugin.Iconize.Droid.IconControls.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
 
