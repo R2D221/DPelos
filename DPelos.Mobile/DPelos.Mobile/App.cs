@@ -14,9 +14,23 @@ namespace DPelos.Mobile
 
 		public App()
 		{
-			MainPage = new LoginPage();
+			if (Application.Current.Properties.ContainsKey("userId"))
+			{
+				if (((string)Application.Current.Properties["TipoUsuario"]) == "Veterinaria")
+				{
+					MainPage = new Views.Client.MainPage();
+				}
+				else
+				{
+					MainPage = new Views.Vet.MainPage();
+				}
+			}
+			else
+			{
+				MainPage = new LoginPage();
+			}
+
 			AzureService = new AzureDataService();
-			MainPage = new NavigationPage(new AddDog());
 		}
 
 		protected override void OnStart()
