@@ -15,10 +15,21 @@
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Nombre" />
+			<Label Grid.Column="1" Text="Nombre de la mascota" />
 		</Grid>
 
-		<Entry x:Name="NameEntry" Placeholder="Firulais" />
+		<Entry x:Name="NameEntry" Placeholder="" />
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
+			<Label Grid.Column="1" Text="Nombre del dueño" />
+		</Grid>
+
+		<Entry x:Name="NameEntry2" Placeholder="" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
