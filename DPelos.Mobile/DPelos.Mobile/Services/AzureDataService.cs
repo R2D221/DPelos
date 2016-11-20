@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Xamarin.Forms;
 using DPelos.Mobile.DataModels;
+using System.Diagnostics;
 
 namespace DPelos.Mobile.Services
 {
@@ -13,9 +14,18 @@ namespace DPelos.Mobile.Services
 	{
 		public MobileServiceClient MobileService { get; set; }
 
-		IMobileServiceSyncTable<Perro> tablaPerro;
-
 		bool isInitialized;
+
+		private IMobileServiceSyncTable<Carnet> tablaCarnet;
+		private IMobileServiceSyncTable<Usuario> tablaUsuario;
+		private IMobileServiceSyncTable<Perro> tablaPerro;
+		private IMobileServiceSyncTable<LugarVeterinaria> tablaLugarVeterinaria;
+		private IMobileServiceSyncTable<Veterinario> tablaVeterinario;
+		private IMobileServiceSyncTable<Consulta> tablaConsulta;
+		private IMobileServiceSyncTable<Calificacion> tablaCalificacion;
+		private IMobileServiceSyncTable<VeterinarioHasPerro> tablaVeterinarioHasPerro;
+		private IMobileServiceSyncTable<Vacuna> tablaVacuna;
+		private IMobileServiceSyncTable<CarnetHasVacuna> tablaCarnetHasVacuna;
 
 		public async Task Initialize()
 		{
@@ -27,10 +37,28 @@ namespace DPelos.Mobile.Services
 			const string path = "syncstore.db";
 
 			var store = new MobileServiceSQLiteStore(path);
+			store.DefineTable<Carnet>();
+			store.DefineTable<Usuario>();
 			store.DefineTable<Perro>();
-			await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
+			store.DefineTable<LugarVeterinaria>();
+			store.DefineTable<Veterinario>();
+			store.DefineTable<Consulta>();
+			store.DefineTable<Calificacion>();
+			store.DefineTable<VeterinarioHasPerro>();
+			store.DefineTable<Vacuna>();
+			store.DefineTable<CarnetHasVacuna>();
 
+			await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
+			tablaCarnet = MobileService.GetSyncTable<Carnet>();
+			tablaUsuario = MobileService.GetSyncTable<Usuario>();
 			tablaPerro = MobileService.GetSyncTable<Perro>();
+			tablaLugarVeterinaria = MobileService.GetSyncTable<LugarVeterinaria>();
+			tablaVeterinario = MobileService.GetSyncTable<Veterinario>();
+			tablaConsulta = MobileService.GetSyncTable<Consulta>();
+			tablaCalificacion = MobileService.GetSyncTable<Calificacion>();
+			tablaVeterinarioHasPerro = MobileService.GetSyncTable<VeterinarioHasPerro>();
+			tablaVacuna = MobileService.GetSyncTable<Vacuna>();
+			tablaCarnetHasVacuna = MobileService.GetSyncTable<CarnetHasVacuna>();
 			isInitialized = true;
 		}
 

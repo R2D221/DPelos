@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using DPelos.Mobile.Services;
 using Xamarin.Forms;
 
@@ -21,6 +22,7 @@ namespace DPelos.Mobile
 		protected override void OnStart()
 		{
 			// Handle when your app starts
+			Task.Run(() => AzureService.Initialize());
 		}
 
 		protected override void OnSleep()
