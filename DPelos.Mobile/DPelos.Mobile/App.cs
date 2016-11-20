@@ -16,7 +16,7 @@ namespace DPelos.Mobile
 		{
 			MainPage = new LoginPage();
 			AzureService = new AzureDataService();
-			MainPage = new NavigationPage(new AddDog());
+			//MainPage = new NavigationPage(new AddDog());
 		}
 
 		protected override void OnStart()
