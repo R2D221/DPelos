@@ -19,5 +19,30 @@ namespace DPelos.Mobile
 		{
 			await Navigation.PushModalAsync(new AddDog());
 		}
+
+		async void AltaCliente(object s, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new AltaCliente());
+		}
+
+		async void AltaLugarVeterinaria(object s, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new AltaLugarVeterinaria());
+		}
+
+		async void AltaVeterinario(object s, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new AltaVeterinario());
+		}
+
+		async void Consulta(object s, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new Consulta());
+		}
+
+		async void Vacunas(object s, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new Vacunas());
+		}
 	}
 }

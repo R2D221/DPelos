@@ -18,5 +18,45 @@
 			</Label.GestureRecognizers>
 		</Label>
 
+		<Label Text="+ Agregar Cliente..." FontSize="24" FontAttributes="Bold">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer
+						Tapped="AltaCliente"
+						NumberOfTapsRequired="1" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label Text="+ Agregar Veterinario..." FontSize="24" FontAttributes="Bold">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer
+						Tapped="AltaVeterinario"
+						NumberOfTapsRequired="1" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label Text="+ Agregar Lugar..." FontSize="24" FontAttributes="Bold">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer
+						Tapped="AltaLugarVeterinaria"
+						NumberOfTapsRequired="1" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label Text="+ Agregar Consulta..." FontSize="24" FontAttributes="Bold">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer
+						Tapped="Consulta"
+						NumberOfTapsRequired="1" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label Text="+ Ver Vacunas..." FontSize="24" FontAttributes="Bold">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer
+						Tapped="Vacunas"
+						NumberOfTapsRequired="1" />
+			</Label.GestureRecognizers>
+		</Label>
+		
 	</StackLayout>
 </ContentPage>
