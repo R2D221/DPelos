@@ -11,6 +11,7 @@ namespace DPelos.Mobile
 	public class App : Application
 	{
 		public static AzureDataService AzureService;
+		public static Action<string> PostSuccessFacebookAction { get; set; }
 
 		public App()
 		{

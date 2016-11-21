@@ -36,10 +36,10 @@
 				<Entry Grid.Column="1" x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" />
 			</Grid>
 			
-			<Button Clicked="LoginFacebook" 
+			<!--<FacebookButton Clicked="LoginFacebook" 
 					Text="Login con Facebook"
 					TextColor="White"
-					BackgroundColor="#1a75ff" /> 
+					BackgroundColor="#1a75ff" />--> 
 				
 			<Button x:Name="LoginButton" 
 					Text="Iniciar sesión" 

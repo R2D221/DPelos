@@ -13,18 +13,27 @@ namespace DPelos.Mobile
 		public LoginPage()
 		{
 			InitializeComponent();
+			//App.PostSuccessFacebookAction = async token =>
+			//{
+			//	FacebookLoginService.LoginToServer(token);
+			//};
 		}
 
 
-		 private void LoginFacebook(object sender, EventArgs e)
+		private void LoginFacebook(object sender, EventArgs e)
 		{
-			
+
 		}
 
 		void Login(object sender, EventArgs e)
 		{
-			App.Current.MainPage = new MainPage();
+			Application.Current.MainPage = new MainPage();
 		}
+
+	}
+
+	public class FacebookLoginButton : Button
+	{
 
 	}
 
