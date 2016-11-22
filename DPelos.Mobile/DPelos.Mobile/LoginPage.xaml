@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+			xmlns:local="clr-namespace:DPelos.Mobile"
 			x:Class="DPelos.Mobile.LoginPage"
 			BackgroundColor="White">
 	 <ContentPage.Padding>
@@ -36,10 +37,10 @@
 				<Entry Grid.Column="1" x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" />
 			</Grid>
 			
-			<!--<FacebookButton Clicked="LoginFacebook" 
+			<local:FacebookLoginButton Clicked="LoginFacebook" 
 					Text="Login con Facebook"
 					TextColor="White"
-					BackgroundColor="#1a75ff" />--> 
+					BackgroundColor="#1a75ff" /> 
 				
 			<Button x:Name="LoginButton" 
 					Text="Iniciar sesión" 
