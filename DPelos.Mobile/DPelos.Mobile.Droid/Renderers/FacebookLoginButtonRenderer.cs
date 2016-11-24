@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Android.App;
 using DPelos.Mobile;
+using DPelos.Mobile.Droid.Interfaces;
 using DPelos.Mobile.Droid.Renderers;
 using Xamarin.Facebook.Login;
 using Xamarin.Facebook.Login.Widget;
@@ -26,19 +27,21 @@ namespace DPelos.Mobile.Droid.Renderers
 			var loginButton = new LoginButton(this.Context);
 			var facebookCallback = new FacebookCallback<LoginResult>
 			{
-				HandleSuccess = shareResult =>
+				Success = shareResult =>
 				{
+					Console.WriteLine("Success!");
 					App.PostSuccessFacebookAction?.Invoke(shareResult.AccessToken.Token);
 				},
-				HandleCancel = () =>
+				Cancel = () =>
 				{
 					Console.WriteLine("HelloFacebook: Canceled");
 				},
-				HandleError = shareError =>
+				Error = shareError =>
 				{
 					Console.WriteLine("HelloFacebook: Error: {0}", shareError);
 				}
 			};
+			loginButton.SetReadPermissions("email");
 			loginButton.RegisterCallback(MainActivity.CallbackManager, facebookCallback);
 			base.SetNativeControl(loginButton);
 		}

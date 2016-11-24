@@ -13,10 +13,10 @@ namespace DPelos.Mobile
 		public LoginPage()
 		{
 			InitializeComponent();
-			//App.PostSuccessFacebookAction = async token =>
-			//{
-			//	FacebookLoginService.LoginToServer(token);
-			//};
+			App.PostSuccessFacebookAction = async token =>
+			{
+				var result = await App.FacebookService.GetProfile();
+			};
 		}
 
 

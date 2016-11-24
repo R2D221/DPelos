@@ -11,27 +11,27 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.Facebook;
 
-namespace DPelos.Mobile.Droid.Renderers
+namespace DPelos.Mobile.Droid.Interfaces
 {
 	public class FacebookCallback<TResult> : Java.Lang.Object, IFacebookCallback where TResult : Java.Lang.Object
 	{
-		public Action HandleCancel { get; set; }
-		public Action<FacebookException> HandleError { get; set; }
-		public Action<TResult> HandleSuccess { get; set; }
+		public Action Cancel { get; set; }
+		public Action<FacebookException> Error { get; set; }
+		public Action<TResult> Success { get; set; }
 
 		public void OnCancel()
 		{
-			HandleCancel?.Invoke();
+			Cancel?.Invoke();
 		}
 
 		public void OnError(FacebookException error)
 		{
-			HandleError?.Invoke(error);
+			Error?.Invoke(error);
 		}
 
 		public void OnSuccess(Java.Lang.Object result)
 		{
-			HandleSuccess?.Invoke(result.JavaCast<TResult>());
+			Success?.Invoke(result.JavaCast<TResult>());
 		}
 	}
 }

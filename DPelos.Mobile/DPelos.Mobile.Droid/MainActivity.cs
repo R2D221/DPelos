@@ -7,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Xamarin.Facebook;
+using DPelos.Mobile.Droid.Services;
+using Android.Content;
 
 namespace DPelos.Mobile.Droid
 {
@@ -14,14 +16,14 @@ namespace DPelos.Mobile.Droid
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
 		public static ICallbackManager CallbackManager = CallbackManagerFactory.Create();
-		public static readonly string[] PERMISSIONS = {  };
+		public static readonly string[] PERMISSIONS = { };
 
-		protected override void OnCreate(Bundle bundle)
+		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
 
-			base.OnCreate(bundle);
+			base.OnCreate(savedInstanceState);
 
 			// Initialize Azure Mobile Apps
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
@@ -31,8 +33,16 @@ namespace DPelos.Mobile.Droid
 
 			FacebookSdk.SdkInitialize(this.ApplicationContext);
 
-			global::Xamarin.Forms.Forms.Init(this, bundle);
+			App.FacebookService = new AndroidFacebookService();
+
+			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 			LoadApplication(new App());
+		}
+
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			base.OnActivityResult(requestCode, resultCode, data);
+			CallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
 		}
 	}
 }

@@ -69,6 +69,7 @@
     <Compile Include="Consulta.xaml.cs">
       <DependentUpon>Consulta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\IFacebookService.cs" />
     <Compile Include="Vacunas.cs" />
     <Compile Include="Views\Client\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
