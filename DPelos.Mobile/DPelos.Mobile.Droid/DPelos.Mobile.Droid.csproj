@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -182,6 +182,24 @@
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.2.127\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\DPelos.Mobile\Librerias\facebook-sdk-6.2.2\lib\ios\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Core">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\MonoAndroid403\ZXing.Net.Mobile.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.portable">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\MonoAndroid403\zxing.portable.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXingNetMobile">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\MonoAndroid403\ZXingNetMobile.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Forms.Android">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.1.47\lib\MonoAndroid403\ZXing.Net.Mobile.Forms.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Forms">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.1.47\lib\MonoAndroid403\ZXing.Net.Mobile.Forms.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Android.App;
 using Android.Content.PM;
@@ -9,6 +9,9 @@ using Android.OS;
 using Xamarin.Facebook;
 using DPelos.Mobile.Droid.Services;
 using Android.Content;
+using ZXing;
+using ZXing.Mobile;
+using ZXing.Net.Mobile.Forms;
 
 namespace DPelos.Mobile.Droid
 {
@@ -20,6 +23,8 @@ namespace DPelos.Mobile.Droid
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
+			ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
 
@@ -39,10 +44,15 @@ namespace DPelos.Mobile.Droid
 			LoadApplication(new App());
 		}
 
-		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		protected override void OnActivityResult(int requestCode, Android.App.Result resultCode, Intent data)
 		{
 			base.OnActivityResult(requestCode, resultCode, data);
 			CallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+		}
+
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		{
+    		global::ZXing.Net.Mobile.Forms.Android.PermissionsHandler.OnRequestPermissionsResult (requestCode, permissions, grantResults);           
 		}
 	}
 }
