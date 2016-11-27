@@ -239,6 +239,46 @@ namespace DPelos.Mobile.Services
 			};
 		}
 
+		public async Task<List<Vacuna>> ObtenerVacunas()
+		{
+			await Initialize();
+			return await tablaVacuna.ToListAsync();
+		}
+
+		public async Task GuardarVacuna(string perroId, string vacunaId, DateTime fechaAplicacion)
+		{
+			await Initialize();
+
+			var perro = await tablaPerro.LookupAsync(perroId);
+			var carnet = await tablaRemotaCarnet.LookupAsync(perro.CarnetId);
+
+			await tablaCarnetHasVacuna.InsertAsync(new CarnetHasVacuna
+			{
+				CarnetId = carnet.Id,
+				VacunaId = vacunaId,
+				FechaAplicacion = fechaAplicacion,
+			});
+			await MobileService.SyncContext.PushAsync();
+		}
+		
+		public async Task GuardarConsulta(string perroId, DateTime fecha, string peso, string tamano, string diagnostico)
+		{
+			await Initialize();
+
+			var perro = await tablaPerro.LookupAsync(perroId);
+			var carnet = await tablaRemotaCarnet.LookupAsync(perro.CarnetId);
+
+			await tablaConsulta.InsertAsync(new Consulta
+			{
+				CarnetId = carnet.Id,
+				PerroId = perro.Id,
+				Fecha = fecha,
+				Peso = Double.Parse(peso),
+				Tamano = Double.Parse(tamano),
+				Diagnostico = diagnostico,
+			});
+			await MobileService.SyncContext.PushAsync();
+		}
 
 
 

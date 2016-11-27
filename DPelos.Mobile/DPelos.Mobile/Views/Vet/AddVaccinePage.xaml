@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			x:Class="DPelos.Mobile.Views.Vet.AddVaccinePage"
+			Padding="10,10,10,10">
+
+	<StackLayout VerticalOptions="FillAndExpand"
+				HorizontalOptions="FillAndExpand"
+				Orientation="Vertical"
+				Spacing="15">
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Label Text="Vacuna" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Picker Grid.Column="1" x:Name="VacunaPicker" />
+		</Grid>
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Label Text="Fecha de aplicación" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<DatePicker Grid.Column="1" x:Name="DateEntry" />
+		</Grid>
+
+		<Button x:Name="SaveButton" Text="Guardar" Clicked="Save" TextColor="White" BackgroundColor="#4DD0E1" />
+
+	</StackLayout>
+
+</ContentPage>

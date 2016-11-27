@@ -22,9 +22,16 @@ namespace DPelos.Mobile.Views.Vet
 		{
 			var infoPerro = await App.AzureService.ObtenerDetallesDePerro(perroId);
 			BindingContext = infoPerro;
+		}
 
-			VacunasListView.HeightRequest = infoPerro.Vacunas.Count * VacunasListView.RowHeight;
-			ConsultasListView.HeightRequest = infoPerro.Consultas.Count * ConsultasListView.RowHeight;
+		void AgregarVacuna(object s, EventArgs e)
+		{
+			Navigation.PushModalAsync(new AddVaccinePage(perroId));
+		}
+
+		void AgregarConsulta(object s, EventArgs e)
+		{
+			Navigation.PushModalAsync(new AddVisitPage(perroId));
 		}
 	}
 }

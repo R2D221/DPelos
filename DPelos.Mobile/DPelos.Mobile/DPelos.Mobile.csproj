@@ -36,6 +36,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Models\InfoPerro.cs" />
+    <Compile Include="Views\Vet\AddVisitPage.xaml.cs">
+      <DependentUpon>AddVisitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vet\AddVaccinePage.xaml.cs">
+      <DependentUpon>AddVaccinePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Vet\DogDetailsPage.xaml.cs">
       <DependentUpon>DogDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -244,6 +250,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Vet\DogDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Vet\AddVaccinePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Vet\AddVisitPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
