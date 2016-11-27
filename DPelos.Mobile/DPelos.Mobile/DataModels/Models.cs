@@ -205,5 +205,7 @@ namespace DPelos.Mobile.DataModels
 		public string CarnetId { get; set; }
 
 		public string VacunaId { get; set; }
+
+		public DateTime FechaAplicacion { get; set; }
 	}
 }

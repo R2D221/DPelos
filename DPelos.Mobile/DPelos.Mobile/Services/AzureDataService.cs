@@ -89,6 +89,8 @@ namespace DPelos.Mobile.Services
 			tablaRemotaVeterinarioHasPerro	= MobileService.GetTable<VeterinarioHasPerro>();
 			tablaRemotaVacuna	= MobileService.GetTable<Vacuna>();
 			tablaRemotaCarnetHasVacuna	= MobileService.GetTable<CarnetHasVacuna>();
+
+			await tablaVacuna.PullAsync("Vacunas", tablaVacuna.CreateQuery());
 		
 			isInitialized = true;
 		}
@@ -203,6 +205,49 @@ namespace DPelos.Mobile.Services
 
 			return perros;
 		}
+
+		public async Task<InfoPerro> ObtenerDetallesDePerro(string perroId)
+		{
+			await Initialize();
+
+			var perro = await tablaPerro.LookupAsync(perroId);
+			var carnet = await tablaRemotaCarnet.LookupAsync(perro.CarnetId);
+
+			await tablaConsulta.PullAsync($"Consultas{perro.Id}", tablaConsulta.Where(x => x.PerroId == perro.Id && x.CarnetId == carnet.Id));
+			await tablaCarnetHasVacuna.PullAsync($"Vacunas{perro.Id}", tablaCarnetHasVacuna.Where(x => x.CarnetId == carnet.Id));
+
+			var vacunas =
+				(await tablaVacuna.ToEnumerableAsync())
+				.ToDictionary(x => x.Id, x => x.Nombre);
+
+			var consultas = await tablaConsulta.Where(x => x.PerroId == perro.Id && x.CarnetId == carnet.Id).ToListAsync();
+
+			var vacunasCarnet =
+				(await tablaCarnetHasVacuna.Where(x => x.CarnetId == carnet.Id).ToEnumerableAsync())
+				.Select(x => new VacunaAplicada
+				{
+					Nombre = vacunas[x.VacunaId],
+					FechaAplicacion = x.FechaAplicacion,
+				})
+				.ToList();
+
+			return new InfoPerro
+			{
+				Perro = perro,
+				Consultas = consultas,
+				Vacunas = vacunasCarnet,
+			};
+		}
+
+
+
+
+
+
+
+
+
+
 
 		//public async Task<IEnumerable<Perro>> ObtenerPerro()
 		//{
