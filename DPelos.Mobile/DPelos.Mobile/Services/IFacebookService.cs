@@ -10,6 +10,6 @@ namespace DPelos.Mobile.Services
 	{
 		string AccessToken { get; }
 
-		Task<object> GetProfile();
+		Task<DPelos.Mobile.Models.Profile> GetProfile();
 	}
 }

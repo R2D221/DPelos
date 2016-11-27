@@ -37,7 +37,7 @@ namespace DPelos.Mobile
 
 		async void Consulta(object s, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new Consulta());
+			await Navigation.PushModalAsync(new Views.Consulta());
 		}
 
 		async void Vacunas(object s, EventArgs e)

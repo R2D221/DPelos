@@ -17,23 +17,27 @@ namespace DPelos.Mobile
 
 		public App()
 		{
+			AzureService = new AzureDataService();
+
 			if (Application.Current.Properties.ContainsKey("userId"))
 			{
-				if (((string)Application.Current.Properties["TipoUsuario"]) == "Veterinaria")
+				switch ((string)Application.Current.Properties["TipoUsuario"])
 				{
-					MainPage = new Views.Client.MainPage();
-				}
-				else
-				{
-					MainPage = new Views.Vet.MainPage();
+					case "Veterinario":
+						MainPage = new Views.Vet.MainPage();
+						break;
+					case "Cliente":
+						MainPage = new Views.Client.MainPage();
+						break;
+					case "Indefinido":
+						MainPage = new Views.ChooseAccountTypePage();
+						break;
 				}
 			}
 			else
 			{
-				MainPage = new LoginPage();
+				MainPage = new Views.LoginPage();
 			}
-
-			AzureService = new AzureDataService();
 		}
 
 		protected override void OnStart()

@@ -19,18 +19,27 @@ namespace DPelos.Mobile.Droid.Services
 	{
 		public string AccessToken => Xamarin.Facebook.AccessToken.CurrentAccessToken?.Token;
 
-		public Task<object> GetProfile()
+		public Task<DPelos.Mobile.Models.Profile> GetProfile()
 		{
-			TaskCompletionSource<object> task = new TaskCompletionSource<object>();
+			TaskCompletionSource<DPelos.Mobile.Models.Profile> task = new TaskCompletionSource<DPelos.Mobile.Models.Profile>();
 
-			GraphRequest.NewMeRequest(Xamarin.Facebook.AccessToken.CurrentAccessToken, new GraphJSONObjectCallback
+			var request = GraphRequest.NewMeRequest(Xamarin.Facebook.AccessToken.CurrentAccessToken, new GraphJSONObjectCallback
 			{
 				Completed = (obj, response) =>
 				{
-					task.SetResult(obj);
+					var result = new DPelos.Mobile.Models.Profile
+					{
+						Name = obj.GetString("name"),
+						Email = obj.GetString("email"),
+						Picture = obj.GetJSONObject("picture").GetJSONObject("data").GetString("url"),
+					};
+					task.SetResult(result);
 				},
 			});
 
+			request.Parameters = new Bundle();
+			request.Parameters.PutString("fields", "name,email,picture.type(large)");
+			request.ExecuteAsync();
 			return task.Task;
 		}
 	}

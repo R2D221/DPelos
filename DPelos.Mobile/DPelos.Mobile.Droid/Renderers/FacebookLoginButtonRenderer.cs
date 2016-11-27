@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Android.App;
 using DPelos.Mobile;
+using DPelos.Mobile.Controls;
 using DPelos.Mobile.Droid.Interfaces;
 using DPelos.Mobile.Droid.Renderers;
 using Xamarin.Facebook.Login;

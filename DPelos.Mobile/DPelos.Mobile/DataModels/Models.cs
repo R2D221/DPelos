@@ -36,6 +36,8 @@ namespace DPelos.Mobile.DataModels
 		public int Tipo { get; set; }
 
 		public string FacebookToken { get; set; }
+
+		public string Foto { get; set; }
 	}
 
 	public class Perro
