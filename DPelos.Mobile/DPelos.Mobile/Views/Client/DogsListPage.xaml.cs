@@ -17,7 +17,7 @@ namespace DPelos.Mobile.Views.Client
 
 		protected override async void OnAppearing()
 		{
-			var perros = await App.AzureService.ObtenerPerrosDeVeterinario((string)Application.Current.Properties["userId"]);
+			var perros = await App.AzureService.ObtenerPerrosDeCliente((string)Application.Current.Properties["userId"]);
 			BindingContext = new
 			{
 				Perros = perros,

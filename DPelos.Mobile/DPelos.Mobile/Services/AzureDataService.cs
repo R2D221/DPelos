@@ -224,6 +224,17 @@ namespace DPelos.Mobile.Services
 			return perros;
 		}
 
+		public async Task<IEnumerable<Perro>> ObtenerPerrosDeCliente(string clienteId)
+		{
+			await Initialize();
+
+			await tablaPerro.PullAsync("Perro", tablaPerro.Where(x => x.UsuarioId == clienteId));
+
+			var perros = await tablaPerro.ToListAsync();
+
+			return perros;
+		}
+
 		public async Task<InfoPerro> ObtenerDetallesDePerro(string perroId)
 		{
 			await Initialize();
