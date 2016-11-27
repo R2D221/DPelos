@@ -29,6 +29,11 @@ namespace DPelos.Mobile.Views.Vet
 			((ListView)sender).SelectedItem = null;
 		}
 
+		void QR(object s, EventArgs e)
+		{
+			//Navigation.PushModalAsync(new AddVaccinePage(perroId));
+		}
+
 		void AgregarVacuna(object s, EventArgs e)
 		{
 			Navigation.PushModalAsync(new AddVaccinePage(perroId));

@@ -10,6 +10,8 @@
 				Orientation="Vertical"
 				Spacing="15">
 
+		<Button Text="Código QR" Clicked="QR" />
+
 		<Label Text="{Binding Perro.Nombre}" FontSize="18" FontAttributes="Bold" />
 		<Label Text="{Binding Perro.Raza}" />
 		<Label Text="{Binding Perro.Edad}" />
