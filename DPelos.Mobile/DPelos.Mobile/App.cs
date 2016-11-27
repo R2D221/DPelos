@@ -43,7 +43,6 @@ namespace DPelos.Mobile
 		protected override void OnStart()
 		{
 			// Handle when your app starts
-			Task.Run(() => AzureService.Initialize());
 		}
 
 		protected override void OnSleep()

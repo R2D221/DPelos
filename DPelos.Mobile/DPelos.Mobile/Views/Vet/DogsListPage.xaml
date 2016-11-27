@@ -11,6 +11,26 @@
 				Spacing="15">
 
 		<Button Text="Registrar perro" Clicked="AddDog" />
+
+		<ListView ItemsSource="{Binding Perros}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<ViewCell.View>
+							<StackLayout VerticalOptions="FillAndExpand"
+										HorizontalOptions="FillAndExpand"
+										Orientation="Horizontal"
+										Spacing="15">
+								
+								<Label Text="{Binding Nombre}" FontSize="18" FontAttributes="Bold" />
+								<Label Text="{Binding Raza}" />
+								<Label Text="{Binding Edad}" />
+							</StackLayout>
+						</ViewCell.View>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
 		
 	</StackLayout>
 </ContentPage>

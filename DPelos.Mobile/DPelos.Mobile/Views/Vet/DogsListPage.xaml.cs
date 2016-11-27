@@ -15,10 +15,13 @@ namespace DPelos.Mobile.Views.Vet
 			InitializeComponent();
 		}
 
-		protected override void OnAppearing()
+		protected override async void OnAppearing()
 		{
-			base.OnAppearing();
-			System.Diagnostics.Debugger.Break();
+			var perros = await App.AzureService.ObtenerPerrosDeVeterinario((string)Application.Current.Properties["userId"]);
+			BindingContext = new
+			{
+				Perros = perros,
+			};
 		}
 
 		async void AddDog(object s, EventArgs e)

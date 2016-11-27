@@ -186,6 +186,24 @@ namespace DPelos.Mobile.Services
 			await MobileService.SyncContext.PushAsync();
 		}
 
+		public async Task<IEnumerable<Perro>> ObtenerPerrosDeVeterinario(string veterinarioId)
+		{
+			await Initialize();
+
+			await tablaVeterinarioHasPerro.PullAsync("VeterinarioHasPerro", tablaVeterinarioHasPerro.Where(x => x.VeterinarioId == veterinarioId));
+
+			var perrosIds = 
+				(await tablaVeterinarioHasPerro.ToEnumerableAsync())
+				.Select(x => x.PerroId)
+				.ToList();
+
+			await tablaPerro.PullAsync("Perro", tablaPerro.Where(x => perrosIds.Contains(x.Id)));
+
+			var perros = await tablaPerro.ToListAsync();
+
+			return perros;
+		}
+
 		//public async Task<IEnumerable<Perro>> ObtenerPerro()
 		//{
 		//	await Initialize();

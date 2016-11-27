@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json;
+using NodaTime;
 
 namespace DPelos.Mobile.DataModels
 {
@@ -59,6 +60,22 @@ namespace DPelos.Mobile.DataModels
 		public string CarnetId { get; set; }
 
 		public string UsuarioId { get; set; }
+
+		public string Edad
+		{
+			get
+			{
+				var fechaNacimiento = new LocalDate(FechaNacimiento.Year, FechaNacimiento.Month, FechaNacimiento.Day);
+				var DateTimeNow = DateTime.Now;
+				var now = new LocalDate(DateTimeNow.Year, DateTimeNow.Month, DateTimeNow.Day);
+				var period = Period.Between(fechaNacimiento, now);
+
+				if (period.Years > 0) return $"{period.Years} años";
+				if (period.Months > 0) return $"{period.Months} meses";
+				if (period.Weeks > 0) return $"{period.Weeks} semanas";
+				return $"{period.Days} días";
+			}
+		}
 	}
 
 	public class LugarVeterinaria
