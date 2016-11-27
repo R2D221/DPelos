@@ -9,6 +9,7 @@ using DPelos.Mobile.DataModels;
 using System.Diagnostics;
 using DPelos.Mobile.Models;
 using System.Linq;
+using System.Threading;
 
 namespace DPelos.Mobile.Services
 {
@@ -93,6 +94,23 @@ namespace DPelos.Mobile.Services
 			await tablaVacuna.PullAsync("Vacunas", tablaVacuna.CreateQuery());
 		
 			isInitialized = true;
+		}
+
+		public async Task Purge()
+		{
+			await Initialize();
+		
+			await tablaCarnet	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaUsuario	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaPerro	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaLugarVeterinaria	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaVeterinario	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaCliente	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaConsulta	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaCalificacion	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaVeterinarioHasPerro	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaVacuna	.PurgeAsync(null, null, true, CancellationToken.None);
+			await tablaCarnetHasVacuna	.PurgeAsync(null, null, true, CancellationToken.None);
 		}
 
 		public async Task<Usuario> ObtenerOCrearUsuario(Profile profile)

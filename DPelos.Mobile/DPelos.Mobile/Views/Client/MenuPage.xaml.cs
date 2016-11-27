@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DPelos.Mobile.Models;
 using Xamarin.Forms;
 
-namespace DPelos.Mobile.Views.Vet
+namespace DPelos.Mobile.Views.Client
 {
 	public partial class MenuPage : ContentPage
 	{
@@ -25,7 +25,7 @@ namespace DPelos.Mobile.Views.Vet
 		{
 			var masterDetailPage = (MasterDetailPage)Parent;
 			masterDetailPage.IsPresented = false;
-			await masterDetailPage.Detail.Navigation.PushAsync(new Views.Vet.DogsListPage());
+			await masterDetailPage.Detail.Navigation.PushAsync(new Views.Client.DogsListPage());
 		}
 
 		async void CerrarSesion(object s, EventArgs e)

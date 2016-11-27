@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace DPelos.Mobile.Views.Client
 {
-	public partial class MainPage : ContentPage
+	public partial class MainPage : MasterDetailPage
 	{
 		public MainPage()
 		{

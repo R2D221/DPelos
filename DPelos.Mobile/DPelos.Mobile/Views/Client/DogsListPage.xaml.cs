@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DPelos.Mobile.DataModels;
 using Xamarin.Forms;
 
-namespace DPelos.Mobile.Views.Vet
+namespace DPelos.Mobile.Views.Client
 {
 	public partial class DogsListPage : ContentPage
 	{
@@ -32,17 +32,12 @@ namespace DPelos.Mobile.Views.Vet
 		async void DogsListPage_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			var perro = (Perro)e.Item;
-			await Navigation.PushAsync(new DogDetailsPage(perro.Id));
+			//await Navigation.PushAsync(new DogDetailsPage(perro.Id));
 		}
 
 		async void AddDog(object s, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new RegisterDogPage());
-		}
-
-		async void AltaLugarVeterinaria(object s, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new AltaLugarVeterinaria());
+			//await Navigation.PushModalAsync(new RegisterDogPage());
 		}
 	}
 }
