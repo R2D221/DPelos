@@ -24,6 +24,11 @@ namespace DPelos.Mobile.Views.Vet
 			BindingContext = infoPerro;
 		}
 
+		void ItemSelected(object sender, SelectedItemChangedEventArgs e)
+		{
+			((ListView)sender).SelectedItem = null;
+		}
+
 		void AgregarVacuna(object s, EventArgs e)
 		{
 			Navigation.PushModalAsync(new AddVaccinePage(perroId));

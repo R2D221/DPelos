@@ -18,7 +18,7 @@
 
 		<Button Text="Agregar vacuna" Clicked="AgregarVacuna" />
 
-		<ListView x:Name="VacunasListView" ItemsSource="{Binding Vacunas}" RowHeight="30">
+		<ListView x:Name="VacunasListView" ItemsSource="{Binding Vacunas}" RowHeight="30" ItemSelected="ItemSelected">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>
@@ -28,7 +28,7 @@
 										Orientation="Horizontal"
 										Spacing="15">
 
-								<Label Text="{Binding FechaAplicacion}" />
+								<Label Text="{Binding FechaAplicacion, StringFormat='{0:d}'}" />
 								<Label Text="{Binding Nombre}" />
 							</StackLayout>
 						</ViewCell.View>
@@ -41,7 +41,7 @@
 
 		<Button Text="Agregar consulta" Clicked="AgregarConsulta" />
 
-		<ListView x:Name="ConsultasListView" ItemsSource="{Binding Consultas}" RowHeight="30">
+		<ListView x:Name="ConsultasListView" ItemsSource="{Binding Consultas}" RowHeight="30" ItemSelected="ItemSelected">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>
@@ -51,10 +51,9 @@
 										Orientation="Horizontal"
 										Spacing="15">
 
-								<Label Text="{Binding Fecha}" />
-								<Label Text="{Binding Diagnostico}" />
-								<Label Text="{Binding Peso}" />
-								<Label Text="{Binding Tamano}" />
+								<Label Text="{Binding Fecha, StringFormat='{0:d}'}" />
+								<Label Text="{Binding Peso, StringFormat='{0} kg'}" />
+								<Label Text="{Binding Tamano, StringFormat='{0} cm'}" />
 							</StackLayout>
 						</ViewCell.View>
 					</ViewCell>
