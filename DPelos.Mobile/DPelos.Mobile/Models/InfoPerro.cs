@@ -12,6 +12,7 @@ namespace DPelos.Mobile.Models
 		public Perro Perro { get; set; }
 		public List<Consulta> Consultas { get; set; }
 		public List<VacunaAplicada> Vacunas { get; set; }
+		public bool EsVeterinario { get; internal set; }
 	}
 
 	public class VacunaAplicada

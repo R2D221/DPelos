@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			x:Class="DPelos.Mobile.Views.Vet.DogDetailsPage"
+			x:Class="DPelos.Mobile.Views.DogDetailsPage"
 			Title="Historial clínico"
 			Padding="10,10,10,10">
 
@@ -18,7 +18,7 @@
 			
 		<Label Text="Vacunas aplicadas" FontSize="18" FontAttributes="Bold" />
 
-		<Button Text="Agregar vacuna" Clicked="AgregarVacuna" />
+		<Button Text="Agregar vacuna" Clicked="AgregarVacuna" IsVisible="{Binding EsVeterinario}" />
 
 		<ListView x:Name="VacunasListView" ItemsSource="{Binding Vacunas}" RowHeight="30" ItemSelected="ItemSelected">
 			<ListView.ItemTemplate>
@@ -41,7 +41,7 @@
 
 		<Label Text="Consultas" FontSize="18" FontAttributes="Bold" />
 
-		<Button Text="Agregar consulta" Clicked="AgregarConsulta" />
+		<Button Text="Agregar consulta" Clicked="AgregarConsulta" IsVisible="{Binding EsVeterinario}" />
 
 		<ListView x:Name="ConsultasListView" ItemsSource="{Binding Consultas}" RowHeight="30" ItemSelected="ItemSelected">
 			<ListView.ItemTemplate>

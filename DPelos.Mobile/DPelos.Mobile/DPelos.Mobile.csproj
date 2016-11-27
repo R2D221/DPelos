@@ -48,7 +48,7 @@
     <Compile Include="Views\Vet\AddVaccinePage.xaml.cs">
       <DependentUpon>AddVaccinePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Vet\DogDetailsPage.xaml.cs">
+    <Compile Include="Views\DogDetailsPage.xaml.cs">
       <DependentUpon>DogDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Vet\RegisterDogPage.xaml.cs">
@@ -255,7 +255,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Vet\DogDetailsPage.xaml">
+    <EmbeddedResource Include="Views\DogDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace DPelos.Mobile.Views.Vet
+namespace DPelos.Mobile.Views
 {
 	public partial class DogDetailsPage : ContentPage
 	{
@@ -21,6 +21,7 @@ namespace DPelos.Mobile.Views.Vet
 		protected override async void OnAppearing()
 		{
 			var infoPerro = await App.AzureService.ObtenerDetallesDePerro(perroId);
+			infoPerro.EsVeterinario = (string)Application.Current.Properties["TipoUsuario"] == "Veterinario";
 			BindingContext = infoPerro;
 		}
 
@@ -36,12 +37,12 @@ namespace DPelos.Mobile.Views.Vet
 
 		void AgregarVacuna(object s, EventArgs e)
 		{
-			Navigation.PushModalAsync(new AddVaccinePage(perroId));
+			Navigation.PushModalAsync(new Views.Vet.AddVaccinePage(perroId));
 		}
 
 		void AgregarConsulta(object s, EventArgs e)
 		{
-			Navigation.PushModalAsync(new AddVisitPage(perroId));
+			Navigation.PushModalAsync(new Views.Vet.AddVisitPage(perroId));
 		}
 	}
 }

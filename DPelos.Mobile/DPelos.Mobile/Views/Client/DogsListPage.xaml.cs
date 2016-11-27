@@ -32,12 +32,7 @@ namespace DPelos.Mobile.Views.Client
 		async void DogsListPage_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			var perro = (Perro)e.Item;
-			//await Navigation.PushAsync(new DogDetailsPage(perro.Id));
-		}
-
-		async void AddDog(object s, EventArgs e)
-		{
-			//await Navigation.PushModalAsync(new RegisterDogPage());
+			await Navigation.PushAsync(new DogDetailsPage(perro.Id));
 		}
 	}
 }
