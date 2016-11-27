@@ -3,68 +3,59 @@
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
 			Title="Registrar Veterinario"
-			x:Class="DPelos.Mobile.AltaVeterinario"
+			x:Class="DPelos.Mobile.Views.Vet.AltaVeterinario"
 			Padding="30,30,30,30">
 	<StackLayout VerticalOptions="FillAndExpand"
 				HorizontalOptions="FillAndExpand"
 				Orientation="Vertical"
 				Spacing="15">
 
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Nombre Completo" />
-		</Grid>
-
-		<Entry x:Name="NameEntry" Keyboard="Default" Placeholder="" />
+		<Label Text="Llena los datos para completar tu registro." FontAttributes="Bold" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Correo" />
+			<Label Text="Nombre" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Label Grid.Column="1" Text="{Binding Name}" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
 		</Grid>
-
-		<Entry x:Name="EmailEntry" Keyboard="Email" Placeholder=""  />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-calendar" />
-			<Label Grid.Column="1" Text="Fecha de nacimiento" />
+			<Label Text="Correo" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Label Grid.Column="1" Text="{Binding Email}" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
 		</Grid>
-
-		<Entry x:Name="BirthdayEntry" Placeholder="01/01/1990" />
-		
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Número de Cédula" />
-		</Grid>
-
-		<Entry x:Name="CedulaEntry" Keyboard="Numeric" Placeholder="" />
-
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Teléfono" />
+			<Label Text="Fecha de nacimiento" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<DatePicker Grid.Column="1" x:Name="BirthdayEntry" />
 		</Grid>
 
-		<Entry x:Name="PhoneEntry" Keyboard="Telephone" Placeholder="" />
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Label Text="Número de cédula" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Entry Grid.Column="1" x:Name="CedulaEntry" Keyboard="Numeric" Placeholder="" />
+		</Grid>
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Label Text="Teléfono" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Entry Grid.Column="1" x:Name="PhoneEntry" Keyboard="Telephone" Placeholder="" />
+		</Grid>
 
 		<Button x:Name="SaveButton" Text="Guardar" Clicked="Save" TextColor="White" BackgroundColor="#4DD0E1" />
 

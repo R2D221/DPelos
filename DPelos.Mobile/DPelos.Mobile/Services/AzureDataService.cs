@@ -119,6 +119,23 @@ namespace DPelos.Mobile.Services
 			await tablaUsuario.UpdateAsync(usuario);
 			await MobileService.SyncContext.PushAsync();
 		}
+		
+
+		public async Task GuardarInfoVeterinario(string userId, DateTime fechaNacimiento, string cedula, string telefono)
+		{
+			await Initialize();
+			var usuario = await tablaRemotaUsuario.LookupAsync(userId);
+			usuario.Tipo = 1;
+			await tablaUsuario.UpdateAsync(usuario);
+			await tablaVeterinario.InsertAsync(new Veterinario
+			{
+				UsuarioId = userId,
+				FechaNacimiento = fechaNacimiento,
+				Cedula = cedula,
+				Telefono = telefono,
+			});
+			await MobileService.SyncContext.PushAsync();
+		}
 
 		//public async Task<IEnumerable<Perro>> ObtenerPerro()
 		//{

@@ -23,16 +23,14 @@ namespace DPelos.Mobile.Views
 
 		public async void ChoseVet(object s, EventArgs e)
 		{
-			Application.Current.Properties["TipoUsuario"] = "Veterinario";
-			await App.AzureService.AsignarTipoAUsuario((string)Application.Current.Properties["userId"], 1);
-			Application.Current.MainPage = new Views.Vet.MainPage();
+			Application.Current.MainPage = new Views.Vet.AltaVeterinario();
 		}
 
 		public async void ChoseClient(object s, EventArgs e)
 		{
-			Application.Current.Properties["TipoUsuario"] = "Cliente";
-			await App.AzureService.AsignarTipoAUsuario((string)Application.Current.Properties["userId"], 2);
-			Application.Current.MainPage = new Views.Client.MainPage();
+			//Application.Current.Properties["TipoUsuario"] = "Cliente";
+			//await App.AzureService.AsignarTipoAUsuario((string)Application.Current.Properties["userId"], 2);
+			Application.Current.MainPage = new Views.Client.AltaCliente();
 		}
 	}
 }

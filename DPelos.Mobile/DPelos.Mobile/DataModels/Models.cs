@@ -89,13 +89,15 @@ namespace DPelos.Mobile.DataModels
 
 		public string Cedula { get; set; }
 
-		public string FechaNacimiento { get; set; }
+		public DateTime FechaNacimiento { get; set; }
 
 		public string Especialidad { get; set; }
 
 		public string LugarVeterinariaId { get; set; }
 
 		public string UsuarioId { get; set; }
+
+		public string Telefono { get; set; }
 	}
 
 	public class Consulta

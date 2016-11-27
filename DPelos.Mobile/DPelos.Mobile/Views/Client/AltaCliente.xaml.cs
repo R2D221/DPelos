@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace DPelos.Mobile
+namespace DPelos.Mobile.Views.Client
 {
 	public partial class AltaCliente : ContentPage
 	{
