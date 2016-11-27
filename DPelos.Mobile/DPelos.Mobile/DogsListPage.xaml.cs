@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 
 namespace DPelos.Mobile
@@ -17,32 +16,32 @@ namespace DPelos.Mobile
 	
 		async void AddDog(object s, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new AddDog());
+			await Navigation.PushModalAsync(new Views.Vet.RegisterDogPage());
 		}
 
-		async void AltaCliente(object s, EventArgs e)
-		{
-			//await Navigation.PushModalAsync(new AltaCliente());
-		}
+		//async void AltaCliente(object s, EventArgs e)
+		//{
+		//	//await Navigation.PushModalAsync(new AltaCliente());
+		//}
 
-		async void AltaLugarVeterinaria(object s, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new AltaLugarVeterinaria());
-		}
+		//async void AltaLugarVeterinaria(object s, EventArgs e)
+		//{
+		//	await Navigation.PushModalAsync(new AltaLugarVeterinaria());
+		//}
 
-		async void AltaVeterinario(object s, EventArgs e)
-		{
-			//await Navigation.PushModalAsync(new AltaVeterinario());
-		}
+		//async void AltaVeterinario(object s, EventArgs e)
+		//{
+		//	//await Navigation.PushModalAsync(new AltaVeterinario());
+		//}
 
-		async void Consulta(object s, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new Views.Consulta());
-		}
+		//async void Consulta(object s, EventArgs e)
+		//{
+		//	await Navigation.PushModalAsync(new Views.Consulta());
+		//}
 
-		async void Vacunas(object s, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new Vacunas());
-		}
+		//async void Vacunas(object s, EventArgs e)
+		//{
+		//	await Navigation.PushModalAsync(new Vacunas());
+		//}
 	}
 }

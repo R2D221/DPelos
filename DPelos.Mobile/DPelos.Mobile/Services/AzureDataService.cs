@@ -23,6 +23,7 @@ namespace DPelos.Mobile.Services
 		private IMobileServiceSyncTable<Perro>	tablaPerro;
 		private IMobileServiceSyncTable<LugarVeterinaria>	tablaLugarVeterinaria;
 		private IMobileServiceSyncTable<Veterinario>	tablaVeterinario;
+		private IMobileServiceSyncTable<Cliente>	tablaCliente;
 		private IMobileServiceSyncTable<Consulta>	tablaConsulta;
 		private IMobileServiceSyncTable<Calificacion>	tablaCalificacion;
 		private IMobileServiceSyncTable<VeterinarioHasPerro>	tablaVeterinarioHasPerro;
@@ -34,6 +35,7 @@ namespace DPelos.Mobile.Services
 		private IMobileServiceTable<Perro>	tablaRemotaPerro;
 		private IMobileServiceTable<LugarVeterinaria>	tablaRemotaLugarVeterinaria;
 		private IMobileServiceTable<Veterinario>	tablaRemotaVeterinario;
+		private IMobileServiceTable<Cliente>	tablaRemotaCliente;
 		private IMobileServiceTable<Consulta>	tablaRemotaConsulta;
 		private IMobileServiceTable<Calificacion>	tablaRemotaCalificacion;
 		private IMobileServiceTable<VeterinarioHasPerro>	tablaRemotaVeterinarioHasPerro;
@@ -55,6 +57,7 @@ namespace DPelos.Mobile.Services
 			store.DefineTable<Perro>();
 			store.DefineTable<LugarVeterinaria>();
 			store.DefineTable<Veterinario>();
+			store.DefineTable<Cliente>();
 			store.DefineTable<Consulta>();
 			store.DefineTable<Calificacion>();
 			store.DefineTable<VeterinarioHasPerro>();
@@ -68,6 +71,7 @@ namespace DPelos.Mobile.Services
 			tablaPerro	= MobileService.GetSyncTable<Perro>();
 			tablaLugarVeterinaria	= MobileService.GetSyncTable<LugarVeterinaria>();
 			tablaVeterinario	= MobileService.GetSyncTable<Veterinario>();
+			tablaCliente	= MobileService.GetSyncTable<Cliente>();
 			tablaConsulta	= MobileService.GetSyncTable<Consulta>();
 			tablaCalificacion	= MobileService.GetSyncTable<Calificacion>();
 			tablaVeterinarioHasPerro	= MobileService.GetSyncTable<VeterinarioHasPerro>();
@@ -79,6 +83,7 @@ namespace DPelos.Mobile.Services
 			tablaRemotaPerro	= MobileService.GetTable<Perro>();
 			tablaRemotaLugarVeterinaria	= MobileService.GetTable<LugarVeterinaria>();
 			tablaRemotaVeterinario	= MobileService.GetTable<Veterinario>();
+			tablaRemotaCliente	= MobileService.GetTable<Cliente>();
 			tablaRemotaConsulta	= MobileService.GetTable<Consulta>();
 			tablaRemotaCalificacion	= MobileService.GetTable<Calificacion>();
 			tablaRemotaVeterinarioHasPerro	= MobileService.GetTable<VeterinarioHasPerro>();
@@ -119,8 +124,7 @@ namespace DPelos.Mobile.Services
 			await tablaUsuario.UpdateAsync(usuario);
 			await MobileService.SyncContext.PushAsync();
 		}
-		
-
+	
 		public async Task GuardarInfoVeterinario(string userId, DateTime fechaNacimiento, string cedula, string telefono)
 		{
 			await Initialize();
@@ -134,6 +138,51 @@ namespace DPelos.Mobile.Services
 				Cedula = cedula,
 				Telefono = telefono,
 			});
+			await MobileService.SyncContext.PushAsync();
+		}
+	
+		public async Task GuardarInfoCliente(string userId, DateTime fechaNacimiento, string telefono)
+		{
+			await Initialize();
+			var usuario = await tablaRemotaUsuario.LookupAsync(userId);
+			usuario.Tipo = 2;
+			await tablaUsuario.UpdateAsync(usuario);
+			await tablaCliente.InsertAsync(new Cliente
+			{
+				UsuarioId = userId,
+				FechaNacimiento = fechaNacimiento,
+				Telefono = telefono,
+			});
+			await MobileService.SyncContext.PushAsync();
+		}
+
+		public async Task RegistrarPerro(string veterinarioId, string email, Perro perro)
+		{
+			await Initialize();
+			var usuario =
+				(await tablaRemotaUsuario.Where(x => x.Email == email).ToEnumerableAsync())
+				.FirstOrDefault();
+
+			if (usuario == null) throw new InvalidOperationException();
+
+			var carnet = new Carnet
+			{
+				FechaCreacion = DateTime.Now,
+			};
+
+			await tablaCarnet.InsertAsync(carnet);
+
+			perro.CarnetId = carnet.Id;
+			perro.UsuarioId = usuario.Id;
+
+			await tablaPerro.InsertAsync(perro);
+
+			await tablaVeterinarioHasPerro.InsertAsync(new VeterinarioHasPerro
+			{
+				PerroId = perro.Id,
+				VeterinarioId = veterinarioId,
+			});
+
 			await MobileService.SyncContext.PushAsync();
 		}
 

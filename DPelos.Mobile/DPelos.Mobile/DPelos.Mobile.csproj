@@ -35,8 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AddDog.xaml.cs">
-      <DependentUpon>AddDog.xaml</DependentUpon>
+    <Compile Include="Views\Vet\RegisterDogPage.xaml.cs">
+      <DependentUpon>RegisterDogPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
     <Compile Include="Controls\FacebookLoginButton.cs" />
@@ -79,8 +79,14 @@
     <Compile Include="Views\Client\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Vet\DogsListPage.xaml.cs">
+      <DependentUpon>DogsListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Vet\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vet\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -183,7 +189,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AddDog.xaml">
+    <EmbeddedResource Include="Views\Vet\RegisterDogPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -212,6 +218,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ChooseAccountTypePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Vet\MenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Vet\DogsListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

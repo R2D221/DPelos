@@ -28,8 +28,6 @@ namespace DPelos.Mobile.Views
 
 		public async void ChoseClient(object s, EventArgs e)
 		{
-			//Application.Current.Properties["TipoUsuario"] = "Cliente";
-			//await App.AzureService.AsignarTipoAUsuario((string)Application.Current.Properties["userId"], 2);
 			Application.Current.MainPage = new Views.Client.AltaCliente();
 		}
 	}

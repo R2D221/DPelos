@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace DPelos.Mobile.Views.Vet
 {
-	public partial class MainPage : ContentPage
+	public partial class MainPage : MasterDetailPage
 	{
 		public MainPage()
 		{

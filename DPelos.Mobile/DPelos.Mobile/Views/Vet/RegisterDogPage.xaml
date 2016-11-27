@@ -2,46 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
-			x:Class="DPelos.Mobile.AddDog"
-			Title="Agregar Perro"
+			x:Class="DPelos.Mobile.Views.Vet.RegisterDogPage"
+			Title="Registrar Perro"
 			Padding="30,30,30,30">
 	<StackLayout VerticalOptions="FillAndExpand"
 				HorizontalOptions="FillAndExpand"
 				Orientation="Vertical"
 				Spacing="15">
 
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Nombre de la mascota" />
-		</Grid>
-
-		<Entry x:Name="NameEntry" Placeholder="" />
+		<Label Text="Registrar perro" FontAttributes="Bold" FontSize="20" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Nombre del dueño" />
+			<Label Text="Nombre" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Entry Grid.Column="1" x:Name="NameEntry" Keyboard="Text" Placeholder="" />
 		</Grid>
-
-		<Entry x:Name="NameEntry2" Placeholder="" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-calendar" />
-			<Label Grid.Column="1" Text="Fecha de nacimiento" />
+			<Label Text="Correo del dueño" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Entry Grid.Column="1" x:Name="EmailEntry" Keyboard="Email" Placeholder="" />
 		</Grid>
 
-		<Entry x:Name="BirthdayEntry" Placeholder="01/01/2010" />
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Label Text="Fecha de nacimiento" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<DatePicker Grid.Column="1" x:Name="BirthdayEntry" />
+		</Grid>
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Label Text="Raza" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Entry Grid.Column="1" x:Name="RazaEntry" Keyboard="Text" Placeholder="" />
+		</Grid>
 
 		<Button x:Name="SaveButton" Text="Guardar" Clicked="Save" TextColor="White" BackgroundColor="#4DD0E1" />
 	</StackLayout>

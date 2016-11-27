@@ -11,83 +11,43 @@
 				Orientation="Vertical"
 				Spacing="15">
 
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Nombre Completo" />
-		</Grid>
-
-		<Entry x:Name="NameEntry" Keyboard="Default" Placeholder="" />
+		<Label Text="Llena los datos para completar tu registro." FontAttributes="Bold" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Correo" />
+			<Label Text="Nombre" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Label Grid.Column="1" Text="{Binding Name}" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
 		</Grid>
-
-		<Entry x:Name="EmailEntry" Keyboard="Email" Placeholder=""  />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Calle" />
+			<Label Text="Correo" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Label Grid.Column="1" Text="{Binding Email}" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
 		</Grid>
-
-		<Entry x:Name="CalleEntry" Placeholder="" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Colonia" />
+			<Label Text="Fecha de nacimiento" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<DatePicker Grid.Column="1" x:Name="BirthdayEntry" />
 		</Grid>
-
-		<Entry x:Name="ColoniaEntry" Placeholder="" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Delegación / Municipio" />
+			<Label Text="Teléfono" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			<Entry Grid.Column="1" x:Name="PhoneEntry" Keyboard="Telephone" Placeholder="" />
 		</Grid>
-
-		<Entry x:Name="DelegacionEntry" Placeholder="" />
-
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Estado" />
-		</Grid>
-
-		<Entry x:Name="EstadoEntry" Placeholder="" />
-
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
-			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-pencil" />
-			<Label Grid.Column="1" Text="Teléfono" />
-		</Grid>
-
-		<Entry x:Name="PhoneEntry" Keyboard="Telephone" Placeholder="" />
-
 
 		<Button x:Name="SaveButton" Text="Guardar" Clicked="Save" TextColor="White" BackgroundColor="#4DD0E1" />
 

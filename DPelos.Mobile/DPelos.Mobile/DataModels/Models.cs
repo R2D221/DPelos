@@ -100,6 +100,21 @@ namespace DPelos.Mobile.DataModels
 		public string Telefono { get; set; }
 	}
 
+	public class Cliente
+	{
+		[JsonProperty("Id")]
+		public string Id { get; set; }
+
+		[Version]
+		public string AzureVersion { get; set; }
+
+		public string UsuarioId { get; set; }
+
+		public DateTime FechaNacimiento { get; set; }
+
+		public string Telefono { get; set; }
+	}
+
 	public class Consulta
 	{
 		[JsonProperty("Id")]
