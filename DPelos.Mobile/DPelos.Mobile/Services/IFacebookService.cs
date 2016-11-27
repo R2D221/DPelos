@@ -11,5 +11,7 @@ namespace DPelos.Mobile.Services
 		string AccessToken { get; }
 
 		Task<DPelos.Mobile.Models.Profile> GetProfile();
+
+		void Logout();
 	}
 }

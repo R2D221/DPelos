@@ -12,6 +12,7 @@ using Android.Widget;
 using DPelos.Mobile.Droid.Interfaces;
 using DPelos.Mobile.Services;
 using Xamarin.Facebook;
+using Xamarin.Facebook.Login;
 
 namespace DPelos.Mobile.Droid.Services
 {
@@ -41,6 +42,11 @@ namespace DPelos.Mobile.Droid.Services
 			request.Parameters.PutString("fields", "name,email,picture.type(large)");
 			request.ExecuteAsync();
 			return task.Task;
+		}
+
+		public void Logout()
+		{
+			LoginManager.Instance.LogOut();
 		}
 	}
 }

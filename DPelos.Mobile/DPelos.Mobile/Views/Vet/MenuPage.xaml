@@ -11,9 +11,9 @@
 				Orientation="Vertical"
 				Spacing="15">
 
-		<Image Source="profile.png" Aspect="AspectFit" />
-		<Label Text="Firulais" HorizontalTextAlignment="Center" TextColor="#4DD0E1" FontSize="20" />
-		<Label Text="firulais@dogstyle.com" HorizontalTextAlignment="Center" />
+		<Image Source="{Binding Picture}" Aspect="AspectFit" HeightRequest="100" />
+		<Label Text="{Binding Name}" HorizontalTextAlignment="Center" TextColor="#4DD0E1" FontSize="20" />
+		<Label Text="{Binding Email}" HorizontalTextAlignment="Center" />
 
 		<BoxView Color="Gray" HeightRequest="1" Margin="0,10,0,10" />
 		
@@ -26,13 +26,13 @@
 			<Label Grid.Column="1" Text="Historial clínico">
 				<Label.GestureRecognizers>
 					<TapGestureRecognizer
-							Tapped="GoToDetails"
+							Tapped="HistorialClinico"
 							NumberOfTapsRequired="1" />
 				</Label.GestureRecognizers>
 			</Label>
 		</Grid>
 
-		<BoxView HeightRequest="1" Margin="0,1,0,1" />
+		<!--<BoxView HeightRequest="1" Margin="0,1,0,1" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -65,7 +65,7 @@
 			<Label Grid.Column="1" Text="Configuración" />
 		</Grid>
 
-		<BoxView HeightRequest="1" Margin="0,1,0,1" />
+		<BoxView HeightRequest="1" Margin="0,1,0,1" />-->
 
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -73,7 +73,13 @@
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-sign-out" />
-			<Label Grid.Column="1" Text="Cerrar sesión" />
+			<Label Grid.Column="1" Text="Cerrar sesión">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer
+							Tapped="CerrarSesion"
+							NumberOfTapsRequired="1" />
+				</Label.GestureRecognizers>
+			</Label>
 		</Grid>
 		
 	</StackLayout>
