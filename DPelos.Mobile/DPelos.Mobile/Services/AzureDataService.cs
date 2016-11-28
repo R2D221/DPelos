@@ -318,45 +318,15 @@ namespace DPelos.Mobile.Services
 			await MobileService.SyncContext.PushAsync();
 		}
 
-
-
-
-
-
-
-
-
-
-		//public async Task<IEnumerable<Perro>> ObtenerPerro()
-		//{
-		//	await Initialize();
-		//	await SyncPerro();
-
-		//	var tbp = tablaPerro.OrderBy(c => c.Nombre).ToEnumerableAsync();
-		//	return await tbp;
-		//}
-
-		//public async Task<Perro> AgregarPerro (string nombre, DateTime fechaNacimiento, string raza )
-		//{
-		//	await Initialize();
-
-		//	var item = new Perro
-		//	{
-		//		Nombre = nombre,
-		//		FechaNacimiento = fechaNacimiento,
-		//		Raza = raza
-		//	};
-
-		//	await tablaPerro.InsertAsync(item);
-
-		//	await SyncPerro();
-		//	return item;
-		//}
-
-		//public async Task SyncPerro()
-		//{
-		//	await tablaPerro.PullAsync("Perro", tablaPerro.CreateQuery());
-		//	await MobileService.SyncContext.PushAsync();
-		//}
+		public async Task AgregarPerroAVeterinario(string perroId, string veterinarioId)
+		{
+			await Initialize();
+			await tablaVeterinarioHasPerro.InsertAsync(new VeterinarioHasPerro
+			{
+				PerroId = perroId,
+				VeterinarioId = veterinarioId,
+			});
+			await MobileService.SyncContext.PushAsync();
+		}
 	}
 }

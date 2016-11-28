@@ -41,7 +41,7 @@
 			</Grid.ColumnDefinitions>
 			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-map-marker" />
 			<Label Grid.Column="1" Text="Veterinarias cercanas" />
-		</Grid>
+		</Grid>-->
 
 		<BoxView HeightRequest="1" Margin="0,1,0,1" />
 
@@ -51,10 +51,16 @@
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-qrcode" />
-			<Label Grid.Column="1" Text="Leer QR" />
+			<Label Grid.Column="1" Text="Leer QR">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer
+							Tapped="LeerQR"
+							NumberOfTapsRequired="1" />
+				</Label.GestureRecognizers>
+			</Label>
 		</Grid>
 
-		<BoxView HeightRequest="1" Margin="0,1,0,1" />
+		<!--<BoxView HeightRequest="1" Margin="0,1,0,1" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -63,9 +69,9 @@
 			</Grid.ColumnDefinitions>
 			<iconize:IconImage WidthRequest="20" HeightRequest="20" Icon="fa-cog" />
 			<Label Grid.Column="1" Text="Configuración" />
-		</Grid>
+		</Grid>-->
 
-		<BoxView HeightRequest="1" Margin="0,1,0,1" />-->
+		<BoxView HeightRequest="1" Margin="0,1,0,1" />
 
 		<Grid>
 			<Grid.ColumnDefinitions>

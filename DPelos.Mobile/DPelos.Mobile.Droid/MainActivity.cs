@@ -10,6 +10,8 @@ using Xamarin.Facebook;
 using DPelos.Mobile.Droid.Services;
 using Android.Content;
 
+[assembly: UsesPermission (Android.Manifest.Permission.Flashlight)]
+
 namespace DPelos.Mobile.Droid
 {
 	[Activity(Label = "DPelos.Mobile", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
