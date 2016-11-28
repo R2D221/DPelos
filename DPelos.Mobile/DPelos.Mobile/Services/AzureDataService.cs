@@ -329,6 +329,13 @@ namespace DPelos.Mobile.Services
 			await MobileService.SyncContext.PushAsync();
 		}
 
+		public async Task<List<LugarVeterinaria>> ObtenerLugaresVeterinarias()
+		{
+			await Initialize();
+			return await tablaRemotaLugarVeterinaria.ToListAsync();
+		}
+
+
 		public async Task<LugarVeterinaria> ObtenerLugarVeterinaria(string veterinarioId)
 		{
 			await Initialize();

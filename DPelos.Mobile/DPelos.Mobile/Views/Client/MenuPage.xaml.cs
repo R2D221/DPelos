@@ -28,6 +28,13 @@ namespace DPelos.Mobile.Views.Client
 			await masterDetailPage.Detail.Navigation.PushAsync(new Views.Client.DogsListPage());
 		}
 
+		async void Mapa(object s, EventArgs e)
+		{
+			var masterDetailPage = (MasterDetailPage)Parent;
+			masterDetailPage.IsPresented = false;
+			await masterDetailPage.Detail.Navigation.PushAsync(new Views.Client.VetPlacePage());
+		}
+
 		async void CerrarSesion(object s, EventArgs e)
 		{
 			App.FacebookService.Logout();

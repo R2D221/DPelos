@@ -43,6 +43,9 @@
     <Compile Include="Views\Client\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Client\VetPlacePage.xaml.cs">
+      <DependentUpon>VetPlacePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DogQRPage.xaml.cs">
       <DependentUpon>DogQRPage.xaml</DependentUpon>
     </Compile>
@@ -330,6 +333,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Vet\VetPlacePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Client\VetPlacePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
