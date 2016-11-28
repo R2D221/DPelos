@@ -42,6 +42,9 @@
     <Compile Include="Views\Client\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VisitDetailsPage.xaml.cs">
+      <DependentUpon>VisitDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Vet\AddVisitPage.xaml.cs">
       <DependentUpon>AddVisitPage.xaml</DependentUpon>
     </Compile>
@@ -84,9 +87,6 @@
     <Compile Include="AltaLugarVeterinaria.xaml.cs">
       <DependentUpon>AltaLugarVeterinaria.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Consulta.xaml.cs">
-      <DependentUpon>Consulta.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Services\IFacebookService.cs" />
     <Compile Include="Vacunas.cs" />
     <Compile Include="Views\ChooseAccountTypePage.xaml.cs">
@@ -122,9 +122,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="AltaLugarVeterinaria.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Consulta.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -280,6 +277,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Client\DogsListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\VisitDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

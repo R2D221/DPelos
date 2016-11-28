@@ -176,6 +176,14 @@ namespace DPelos.Mobile.Services
 			await MobileService.SyncContext.PushAsync();
 		}
 
+		public async Task<string> ObtenerNombreUsuario(string veterinarioId)
+		{
+			await Initialize();
+			var usuario = await tablaRemotaUsuario.LookupAsync(veterinarioId);
+			return usuario.Nombre;
+		}
+
+
 		public async Task RegistrarPerro(string veterinarioId, string email, Perro perro)
 		{
 			await Initialize();
@@ -290,7 +298,7 @@ namespace DPelos.Mobile.Services
 			await MobileService.SyncContext.PushAsync();
 		}
 		
-		public async Task GuardarConsulta(string perroId, DateTime fecha, string peso, string tamano, string diagnostico)
+		public async Task GuardarConsulta(string veterinarioId, string perroId, DateTime fecha, string peso, string tamano, string diagnostico)
 		{
 			await Initialize();
 
@@ -301,6 +309,7 @@ namespace DPelos.Mobile.Services
 			{
 				CarnetId = carnet.Id,
 				PerroId = perro.Id,
+				VeterinarioId = veterinarioId,
 				Fecha = fecha,
 				Peso = Double.Parse(peso),
 				Tamano = Double.Parse(tamano),

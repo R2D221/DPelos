@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DPelos.Mobile.DataModels;
 using Xamarin.Forms;
 
 namespace DPelos.Mobile.Views
@@ -28,6 +28,12 @@ namespace DPelos.Mobile.Views
 		void ItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			((ListView)sender).SelectedItem = null;
+		}
+
+		void Consultas_ItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			var consulta = (Consulta)e.Item;
+			Navigation.PushModalAsync(new VisitDetailsPage(consulta));
 		}
 
 		void QR(object s, EventArgs e)

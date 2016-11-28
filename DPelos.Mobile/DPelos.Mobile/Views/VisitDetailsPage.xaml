@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			x:Class="DPelos.Mobile.Views.VisitDetailsPage"
+			Title="Historial clínico"
+			Padding="10,10,10,10">
+
+	<ScrollView>
+
+		<StackLayout VerticalOptions="FillAndExpand"
+					HorizontalOptions="FillAndExpand"
+					Orientation="Vertical"
+					Spacing="15">
+
+			<Label Text="Consulta" FontSize="20" FontAttributes="Bold" />
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label Text="Fecha" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
+				<Label Grid.Column="1" Text="{Binding Consulta.Fecha, StringFormat='{0:d}'}" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			</Grid>
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label Text="Atendido por" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
+				<Label Grid.Column="1" Text="{Binding NombreVeterinario}" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			</Grid>
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label Text="Peso" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
+				<Label Grid.Column="1" Text="{Binding Consulta.Peso, StringFormat='{0} kg'}" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			</Grid>
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label Text="Tamaño" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
+				<Label Grid.Column="1" Text="{Binding Consulta.Tamano, StringFormat='{0} cm'}" VerticalTextAlignment="End" Margin="0,0,0,12" />
+			</Grid>
+
+			<Label Text="Diagnóstico" VerticalTextAlignment="End" Margin="0,0,0,12" FontAttributes="Bold" />
+
+			<Label Text="{Binding Consulta.Diagnostico}" VerticalTextAlignment="End" Margin="0,0,0,12" />
+
+		</StackLayout>
+
+	</ScrollView>
+
+</ContentPage>

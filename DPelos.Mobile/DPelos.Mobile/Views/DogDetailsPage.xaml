@@ -43,7 +43,7 @@
 
 		<Button Text="Agregar consulta" Clicked="AgregarConsulta" IsVisible="{Binding EsVeterinario}" />
 
-		<ListView x:Name="ConsultasListView" ItemsSource="{Binding Consultas}" RowHeight="30" ItemSelected="ItemSelected">
+		<ListView x:Name="ConsultasListView" ItemsSource="{Binding Consultas}" RowHeight="30" ItemSelected="ItemSelected" ItemTapped="Consultas_ItemTapped">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>

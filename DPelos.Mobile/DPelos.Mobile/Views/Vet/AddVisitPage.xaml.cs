@@ -25,7 +25,7 @@ namespace DPelos.Mobile.Views.Vet
 
 		async void Save(object s, EventArgs e)
 		{
-			await App.AzureService.GuardarConsulta(perroId, DateEntry.Date, PesoEntry.Text, TamanoEntry.Text, DiagnosticoEntry.Text);
+			await App.AzureService.GuardarConsulta((string)Application.Current.Properties["userId"], perroId, DateEntry.Date, PesoEntry.Text, TamanoEntry.Text, DiagnosticoEntry.Text);
 			await Navigation.PopModalAsync();
 		}
 	}
