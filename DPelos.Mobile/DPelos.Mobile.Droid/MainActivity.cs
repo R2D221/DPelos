@@ -20,6 +20,8 @@ namespace DPelos.Mobile.Droid
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
+			ZXing.Net.Mobile.Forms.Android.Platform.Init(); 
+
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
 
@@ -43,6 +45,11 @@ namespace DPelos.Mobile.Droid
 		{
 			base.OnActivityResult(requestCode, resultCode, data);
 			CallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+		}
+
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		{
+			global::ZXing.Net.Mobile.Forms.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		}
 	}
 }

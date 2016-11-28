@@ -27,6 +27,12 @@ namespace DPelos.Mobile.Droid
 		public static void UpdateIdValues()
 		{
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::DPelos.Mobile.Droid.Resource.Attribute.actionBarSize;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::DPelos.Mobile.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::DPelos.Mobile.Droid.Resource.Layout.zxingscannerfragmentlayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.String.library_name = global::DPelos.Mobile.Droid.Resource.String.library_name;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::DPelos.Mobile.Droid.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::DPelos.Mobile.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::DPelos.Mobile.Droid.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Animation
@@ -2621,6 +2627,9 @@ namespace DPelos.Mobile.Droid
 			// aapt resource value: 0x7f070078
 			public const int confirmation_code = 2131165304;
 			
+			// aapt resource value: 0x7f0700b3
+			public const int contentFrame = 2131165363;
+			
 			// aapt resource value: 0x7f070056
 			public const int contentPanel = 2131165270;
 			
@@ -3302,6 +3311,12 @@ namespace DPelos.Mobile.Droid
 			// aapt resource value: 0x7f030042
 			public const int Toolbar = 2130903106;
 			
+			// aapt resource value: 0x7f030043
+			public const int zxingscanneractivitylayout = 2130903107;
+			
+			// aapt resource value: 0x7f030044
+			public const int zxingscannerfragmentlayout = 2130903108;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -3372,11 +3387,11 @@ namespace DPelos.Mobile.Droid
 			// aapt resource value: 0x7f080021
 			public const int abc_toolbar_collapse_description = 2131230753;
 			
-			// aapt resource value: 0x7f080038
-			public const int app_id = 2131230776;
-			
 			// aapt resource value: 0x7f080039
-			public const int app_name = 2131230777;
+			public const int app_id = 2131230777;
+			
+			// aapt resource value: 0x7f08003a
+			public const int app_name = 2131230778;
 			
 			// aapt resource value: 0x7f080023
 			public const int appbar_scrolling_view_behavior = 2131230755;
@@ -3387,59 +3402,62 @@ namespace DPelos.Mobile.Droid
 			// aapt resource value: 0x7f080025
 			public const int character_counter_pattern = 2131230757;
 			
-			// aapt resource value: 0x7f080026
-			public const int com_facebook_device_auth_instructions = 2131230758;
-			
 			// aapt resource value: 0x7f080027
-			public const int com_facebook_image_download_unknown_error = 2131230759;
+			public const int com_facebook_device_auth_instructions = 2131230759;
 			
 			// aapt resource value: 0x7f080028
-			public const int com_facebook_internet_permission_error_message = 2131230760;
+			public const int com_facebook_image_download_unknown_error = 2131230760;
 			
 			// aapt resource value: 0x7f080029
-			public const int com_facebook_internet_permission_error_title = 2131230761;
+			public const int com_facebook_internet_permission_error_message = 2131230761;
 			
 			// aapt resource value: 0x7f08002a
-			public const int com_facebook_like_button_liked = 2131230762;
+			public const int com_facebook_internet_permission_error_title = 2131230762;
 			
 			// aapt resource value: 0x7f08002b
-			public const int com_facebook_like_button_not_liked = 2131230763;
+			public const int com_facebook_like_button_liked = 2131230763;
 			
 			// aapt resource value: 0x7f08002c
-			public const int com_facebook_loading = 2131230764;
+			public const int com_facebook_like_button_not_liked = 2131230764;
 			
 			// aapt resource value: 0x7f08002d
-			public const int com_facebook_loginview_cancel_action = 2131230765;
+			public const int com_facebook_loading = 2131230765;
 			
 			// aapt resource value: 0x7f08002e
-			public const int com_facebook_loginview_log_in_button = 2131230766;
+			public const int com_facebook_loginview_cancel_action = 2131230766;
 			
 			// aapt resource value: 0x7f08002f
-			public const int com_facebook_loginview_log_in_button_long = 2131230767;
+			public const int com_facebook_loginview_log_in_button = 2131230767;
 			
 			// aapt resource value: 0x7f080030
-			public const int com_facebook_loginview_log_out_action = 2131230768;
+			public const int com_facebook_loginview_log_in_button_long = 2131230768;
 			
 			// aapt resource value: 0x7f080031
-			public const int com_facebook_loginview_log_out_button = 2131230769;
+			public const int com_facebook_loginview_log_out_action = 2131230769;
 			
 			// aapt resource value: 0x7f080032
-			public const int com_facebook_loginview_logged_in_as = 2131230770;
+			public const int com_facebook_loginview_log_out_button = 2131230770;
 			
 			// aapt resource value: 0x7f080033
-			public const int com_facebook_loginview_logged_in_using_facebook = 2131230771;
+			public const int com_facebook_loginview_logged_in_as = 2131230771;
 			
 			// aapt resource value: 0x7f080034
-			public const int com_facebook_send_button_text = 2131230772;
+			public const int com_facebook_loginview_logged_in_using_facebook = 2131230772;
 			
 			// aapt resource value: 0x7f080035
-			public const int com_facebook_share_button_text = 2131230773;
+			public const int com_facebook_send_button_text = 2131230773;
 			
 			// aapt resource value: 0x7f080036
-			public const int com_facebook_tooltip_default = 2131230774;
+			public const int com_facebook_share_button_text = 2131230774;
 			
 			// aapt resource value: 0x7f080037
-			public const int messenger_send_button_text = 2131230775;
+			public const int com_facebook_tooltip_default = 2131230775;
+			
+			// aapt resource value: 0x7f080026
+			public const int library_name = 2131230758;
+			
+			// aapt resource value: 0x7f080038
+			public const int messenger_send_button_text = 2131230776;
 			
 			// aapt resource value: 0x7f080000
 			public const int mr_button_content_description = 2131230720;

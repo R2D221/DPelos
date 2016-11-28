@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DPelos.Mobile.DataModels;
+using DPelos.Mobile.Models;
 using Xamarin.Forms;
 
 namespace DPelos.Mobile.Views
@@ -11,6 +12,7 @@ namespace DPelos.Mobile.Views
 	public partial class DogDetailsPage : ContentPage
 	{
 		string perroId;
+		InfoPerro infoPerro;
 
 		public DogDetailsPage(string perroId)
 		{
@@ -20,7 +22,7 @@ namespace DPelos.Mobile.Views
 
 		protected override async void OnAppearing()
 		{
-			var infoPerro = await App.AzureService.ObtenerDetallesDePerro(perroId);
+			infoPerro = await App.AzureService.ObtenerDetallesDePerro(perroId);
 			infoPerro.EsVeterinario = (string)Application.Current.Properties["TipoUsuario"] == "Veterinario";
 			BindingContext = infoPerro;
 		}
@@ -38,7 +40,10 @@ namespace DPelos.Mobile.Views
 
 		void QR(object s, EventArgs e)
 		{
-			//Navigation.PushModalAsync(new AddVaccinePage(perroId));
+			if (infoPerro != null)
+			{
+				Navigation.PushModalAsync(new DogQRPage(perroId, infoPerro.Perro.Nombre));
+			}
 		}
 
 		void AgregarVacuna(object s, EventArgs e)
