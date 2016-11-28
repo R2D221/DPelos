@@ -254,7 +254,7 @@ namespace DPelos.Mobile.Services
 			await tablaCarnetHasVacuna.PullAsync($"Vacunas{perro.Id}", tablaCarnetHasVacuna.Where(x => x.CarnetId == carnet.Id));
 
 			var vacunas =
-				(await tablaVacuna.ToEnumerableAsync())
+				(await tablaRemotaVacuna.ToEnumerableAsync())
 				.ToDictionary(x => x.Id, x => x.Nombre);
 
 			var consultas = await tablaConsulta.Where(x => x.PerroId == perro.Id && x.CarnetId == carnet.Id).ToListAsync();
@@ -328,5 +328,47 @@ namespace DPelos.Mobile.Services
 			});
 			await MobileService.SyncContext.PushAsync();
 		}
+
+		public async Task<LugarVeterinaria> ObtenerLugarVeterinaria(string veterinarioId)
+		{
+			await Initialize();
+			var lugarVeterinariaId =
+				(await tablaRemotaVeterinario.Where(x => x.UsuarioId == veterinarioId).ToEnumerableAsync())
+				.Select(x => x.LugarVeterinariaId)
+				.FirstOrDefault();
+
+			if (lugarVeterinariaId == null)
+			{
+				return new LugarVeterinaria();
+			}
+
+			await tablaLugarVeterinaria.PullAsync("LugarVeterinaria", tablaLugarVeterinaria.Where(x => x.Id == lugarVeterinariaId));
+			return await tablaLugarVeterinaria.LookupAsync(lugarVeterinariaId);
+		}
+
+		public async Task GuardarLugarVeterinaria(string veterinarioId, LugarVeterinaria lugarVeterinaria)
+		{
+			await Initialize();
+			if (lugarVeterinaria.Id == null)
+			{
+				await tablaLugarVeterinaria.InsertAsync(lugarVeterinaria);
+
+				var veterinario =
+					(await tablaRemotaVeterinario.Where(x => x.UsuarioId == veterinarioId).ToEnumerableAsync())
+					.FirstOrDefault();
+
+				veterinario.LugarVeterinariaId = lugarVeterinaria.Id;
+
+				await tablaRemotaVeterinario.UpdateAsync(veterinario);
+			}
+			else
+			{
+				await tablaLugarVeterinaria.UpdateAsync(lugarVeterinaria);
+			}
+
+			await MobileService.SyncContext.PushAsync();
+		}
+
+
 	}
 }

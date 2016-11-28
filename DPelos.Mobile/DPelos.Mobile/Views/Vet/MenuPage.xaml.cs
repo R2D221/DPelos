@@ -54,6 +54,13 @@ namespace DPelos.Mobile.Views.Vet
 			};
 			await Navigation.PushModalAsync(scanner);
 		}
+	
+		async void AdministrarLocal(object s, EventArgs e)
+		{
+			var masterDetailPage = (MasterDetailPage)Parent;
+			masterDetailPage.IsPresented = false;
+			await masterDetailPage.Detail.Navigation.PushAsync(new Views.Vet.VetPlacePage());
+		}
 
 		async void CerrarSesion(object s, EventArgs e)
 		{

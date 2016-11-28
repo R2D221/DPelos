@@ -86,10 +86,15 @@ namespace DPelos.Mobile.DataModels
 		[Version]
 		public string AzureVersion { get; set; }
 
-		public float Longitud { get; set; }
-		public float Latitud { get; set; }
+		public string Nombre { get; set; }
+
+		public double Longitud { get; set; }
+
+		public double Latitud { get; set; }
 
 		public string Direccion { get; set; }
+
+		public bool EsVisible => Longitud != 0 && Latitud != 0;
 	}
 
 	public class Veterinario
@@ -100,15 +105,15 @@ namespace DPelos.Mobile.DataModels
 		[Version]
 		public string AzureVersion { get; set; }
 
-		public string Nombre { get; set; }
+		//public string Nombre { get; set; }
 
-		public string Email { get; set; }
+		//public string Email { get; set; }
 
 		public string Cedula { get; set; }
 
 		public DateTime FechaNacimiento { get; set; }
 
-		public string Especialidad { get; set; }
+		//public string Especialidad { get; set; }
 
 		public string LugarVeterinariaId { get; set; }
 
